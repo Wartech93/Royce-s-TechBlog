@@ -17,17 +17,21 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 router.put('/:id', withAuth, async (req, res) => { 
- 
+  const projectId = req.params.id;
+  const { commentText } = req.body;
   try {
-    const updatedProject = await Project.update(
-      {
-        comment: req.body.comment,
-      },
-      {
-      where: {
-        id: req.params.id
-      },
-      });
+    const project = await Project.findbyPk(projectId);
+    if (!project) {
+      return res.status(404).json({ error: 'Project not found' });
+    }
+
+    // Append the new comment to the existing comments (if any)
+    project.comments = project.comments
+      ? `${project.comments}\n${commentText}`
+      : commentText;
+
+    // Save the updated project to the database
+    await project.save();
     
   res.status(200).json(updatedProject);
   }catch (err) {

@@ -41,11 +41,11 @@ const delButtonHandler = async (event) => {
 
 const addCommentHandler = async (event) => {
 
-const commentText = document.querySelector('#comment-text');
+const commentText = document.getElementbyId('comment-text');
 
 if (commentText) {
-  const response = await fetch(`/api/project`, {
-  method: 'POST',
+  const response = await fetch(`/api/project/${id}`, {
+  method: 'PUT',
   body: JSON.stringify({ commentText }),
   headers: {
     'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ if (commentText) {
   } else {
     const errorText = await response.text(); // Get response body text
     console.error('Error:', errorText);
-    alert('Failed to create project');
+    alert('Failed to add comment');
 }
 }
 };
@@ -68,4 +68,6 @@ document
   .querySelector('.project-list')
   .addEventListener('click', delButtonHandler);
 
- 
+ document
+  .getElementById('saveBtn')
+  .addEventListener('click', addCommentHandler);

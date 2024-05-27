@@ -4,9 +4,10 @@
   </div>
 
   <p>{{project.description}}</p>
-  <p>Created by {{project.user.name}} on {{project.created_at}}</p>
+  <p>Created by</p>
+  <a href="/profile/{{user.id}}">{{user.name}}</a>
   <p>
-    <span class="comments">{{project.user_comment}}</span>
+    <span class="comments">{{project.comment}}</span>
     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comment-modal">Add Comment</button> 
     <div class="modal" tabindex="-1" id="comment-modal">
   <div class="modal-dialog">
@@ -25,7 +26,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" id = "saveBtn">Save changes</button>
       </div>
     </div>
   </div>
@@ -33,3 +34,5 @@
     <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
   </p>
 </div>
+
+ <script src="./js/profile.js"></script>

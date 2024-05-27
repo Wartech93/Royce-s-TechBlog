@@ -7,7 +7,7 @@ User.hasMany(Project, {
 });
 
 Project.belongsTo(User, {
-  foreignKey: 'userId'
+  foreignKey: 'userId',
 });
 
 module.exports = { User, Project };

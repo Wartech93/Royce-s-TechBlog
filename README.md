@@ -110,7 +110,8 @@ MySQL
 ## Contact
 
 For any inquiries or questions, please contact Royce Atkins at royceatkins93@gmail.com.
-My github repo: https://github.com/Wartech93/Royce-s-TechBlog.git
+- My github repo: https://github.com/Wartech93/Royce-s-TechBlog.git
+- Render Link: https://royce-s-techblog.onrender.com
 Thank you for using TechBlog! We hope you enjoy sharing and reading amazing tech content.
 
 Feel free to adjust any details as per your project's actual setup and requirements.
